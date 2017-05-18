@@ -1,16 +1,15 @@
-let React = require('react');
+import React from 'react'
+import { Popular } from './Popular.js'
+import '../index.css'
 
 
 
-class App extends React.Component {
+export class App extends React.Component {
     render() {
       return (
-        <div>
-          Hello World!
+        <div className="">
+          <Popular name = 'toto' />
         </div>
       )
     }
 }
-
-
-module.exports = App;
