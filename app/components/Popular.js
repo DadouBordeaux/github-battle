@@ -1,8 +1,25 @@
 import React from 'react'
 
+function SelectLanguage(props) {
+  let languages = ['All', 'Javascript', 'Ruby', 'Java', 'Css', 'Python'];
+  return (
+      <ul className="languages">
+        {languages.map(function(lang) {
+          return (          
+            <li
+            style={lang === props.selectedLanguage ? {color: '#d0021b'} : null}
+              onClick={props.onSelect.bind(null, lang)}
+              key={lang}>
+              {lang}
+            </li>
+          )
+        })}
+      </ul>
+  )
+}
+
 
 export class Popular extends React.Component {
-    
     constructor (props) {
       super(props);
       this.state = {
@@ -15,31 +32,18 @@ export class Popular extends React.Component {
       this.setState({
         selectedLanguage: lang
       })
-      /*this.setState(function() {
-        return {
-          selectedLanguage: lang
-        }
-      });*/
     }
 
-    
-    
     render() {
-      let languages = ['All', 'Javascript', 'Ruby', 'Java', 'Css', 'Python'];
       return (
-          <ul className="languages">
-            {languages.map(function(lang) {
-              return (          
-                <li
-                style={lang === this.state.selectedLanguage ? {color: '#d0021b'} : null}
-                  onClick={this.updateLanguage.bind(null, lang)}
-                  key={lang}>
-                  {lang}
-                </li>
-              )
-            }, this)}
-          </ul>
+          <div>
+            <SelectLanguage
+              selectedLanguage={this.state.selectedLanguage}
+              onSelect={this.updateLanguage} 
+              />
+          </div>
       )
     }
-}
+  }
+
 
