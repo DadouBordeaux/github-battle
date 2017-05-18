@@ -12,18 +12,16 @@ export class Popular extends React.Component {
     }
 
     updateLanguage(lang) {
-      this.setState(function() {
+      this.setState({
+        selectedLanguage: lang
+      })
+      /*this.setState(function() {
         return {
           selectedLanguage: lang
         }
-      });
+      });*/
     }
 
-    
-    
-    
-    
-    
     
     
     render() {
