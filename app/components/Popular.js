@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function SelectLanguage(props) {
   let languages = ['All', 'Javascript', 'Ruby', 'Java', 'Css', 'Python'];
@@ -18,6 +19,10 @@ function SelectLanguage(props) {
   )
 }
 
+SelectLanguage.propTypes = {
+  selectedLanguage: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired,
+}
 
 export class Popular extends React.Component {
     constructor (props) {
